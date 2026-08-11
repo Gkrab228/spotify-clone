@@ -1,0 +1,40 @@
+
+# Зависимости
+node_modules/
+.pnp.*
+
+# Next.js
+.next/
+out/
+build/
+next-env.d.ts
+.vercel/
+
+# Переменные окружения (критично для безопасности)
+.env
+.env*.local
+minio.license
+
+# Локальные директории Docker (тома БД и MinIO)
+pg_data/
+minio_data/
+
+# Логи сборки и пакетов
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# Кэш Typescript
+*.tsbuildinfo
+
+# Системные файлы и конфигурации редакторов
+.DS_Store
+.vscode/
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+
+# Ключи и сертификаты
+*.pem
