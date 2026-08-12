@@ -10,7 +10,6 @@ const s3Client = new S3Client({
     forcePathStyle: true,
 })
 
-const bucketName = process.env.MINIO_BUCKET_NAME
-
+const bucketName = process.env.MINIO_BUCKET_NAME;
 
 
