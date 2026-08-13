@@ -14,11 +14,17 @@ export function getMediaUrl(path?: string | null): string {
 }
 
 export async function getTestSongs() {
-    const songs = await prisma.song.findMany();
-    return songs.map((song) => ({
-        ...song,
-        imgLink: getMediaUrl(song.imgLink),
-        songLink: getMediaUrl(song.songLink),
-    }));
+    try{
+        const songs = await prisma.song.findMany();
+        return songs.map((song) => ({
+            ...song,
+            imgLink: getMediaUrl(song.imgLink),
+            songLink: getMediaUrl(song.songLink),
+        }));
+    } catch(error){
+        console.error("Database Error", error);
+        throw new Error("Failed to fetch songs");
+    }
+
 
 }

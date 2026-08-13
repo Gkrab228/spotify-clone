@@ -1,4 +1,5 @@
 import Image from "next/image";
+import AudioPlayer from "@/app/ui/open/AudioPlayer";
 
 export default function Page(){
     return (
@@ -11,7 +12,7 @@ export default function Page(){
                     <p className="text-xs text-neutral-400">EsDeeKid</p>
                 </div>
             </div>
-
+            <AudioPlayer />
             <div>
 
             </div>
