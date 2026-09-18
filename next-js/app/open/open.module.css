@@ -1,0 +1,4 @@
+
+.progressLine{
+    transform: translate(var(--progress-bar-translate));
+}

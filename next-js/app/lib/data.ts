@@ -9,7 +9,6 @@ export function getMediaUrl(path?: string | null): string {
     // Construct base URL from environment variables
     const baseUrl = process.env.NEXT_PUBLIC_S3_BASE_URL || "https://localhost:9000/media-bucket";
     const cleanPath = path.startsWith("/") ? path : `/${path}`;
-    console.log(`${baseUrl}${cleanPath}`);
     return `${baseUrl}${cleanPath}`;
 }
 
@@ -25,6 +24,4 @@ export async function getTestSongs() {
         console.error("Database Error", error);
         throw new Error("Failed to fetch songs");
     }
-
-
 }

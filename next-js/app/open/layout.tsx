@@ -11,7 +11,7 @@ export default function RootLayout({
     <>
       <Header />
       <SideBar />
-      <main className="overflow-x-hidden rounded-md [grid-area:main] bg-neutral-900">
+      <main className="overflow-x-hidden rounded-md [grid-area:main] ps-10 bg-neutral-900">
           {children}
       </main>
       <NowPlayingBar/>

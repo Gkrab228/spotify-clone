@@ -27,5 +27,32 @@ body {
   grid-template: 
   'top-bar top-bar'
   'side-bar main' 1fr
-  'now-playing-bar now-playing-bar' / auto 1fr auto;
+  'now-playing-bar now-playing-bar' / auto 1fr;
+}
+
+input[type="range"] {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 100%;
+  background: transparent;
+  cursor: pointer;
+}
+input[type="range"]::-webkit-slider-runnable-track {
+  height: 4px;
+  background: #4d4d4d; /* the gray unplayed part */
+  border-radius: 2px;
+}
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  height: 12px;
+  width: 12px;
+  border-radius: 50%;
+  background: #fff;
+  margin-top: -4px; /* centers thumb on the track */
+}
+
+input[type="range"] {
+  background: linear-gradient(to right, #1db954 0%, #1db954 var(--progress, 0%), #4d4d4d var(--progress, 0%), #4d4d4d 100%);
+  height: 4px;
+  border-radius: 2px;
 }

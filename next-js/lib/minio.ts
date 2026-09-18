@@ -1,6 +1,6 @@
 import { S3Client, PutObjectCommand } from "@aws-sdk/client-s3";
 
-const s3Client = new S3Client({
+export const s3Client = new S3Client({
     credentials:{
         accessKeyId: process.env.MINIO_ACCESS_KEY!,
         secretAccessKey: process.env.MINIO_SECRET_KEY!,
