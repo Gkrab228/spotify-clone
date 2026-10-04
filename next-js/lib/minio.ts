@@ -28,11 +28,11 @@ export async function getUploadUrl(Key:string,ContentType:string){
     Key,
     ContentType,
   });
-  
+
   try{
     const presignedUrl = await getSignedUrl(s3ClientPublic, command, {
       signableHeaders: new Set(["content-type"]),
-      expiresIn: 3000,
+      expiresIn: 300,
     });
     return presignedUrl;
   } catch(err){

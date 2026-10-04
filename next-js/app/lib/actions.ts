@@ -18,7 +18,8 @@ export async function saveSongRecord(formData: FormData){
 
 export async function getPresignedUrl(type:string) {
     const key = randomUUID();
-    if(!ImageTypes.validate(type)) return new Error("Wrong image type");
+    if(!ImageTypes.validate(type)) throw new Error("Wrong image type");
+    
 
     const MP3Url = await getUploadUrl(`songs/${key}.mp3`,'audio/mpeg');
     const IMGUrl = await getUploadUrl(`images/${key}.${type}`,`image/${type}`);

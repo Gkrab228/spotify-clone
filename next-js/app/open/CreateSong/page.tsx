@@ -8,17 +8,25 @@ async function handleSongSubmit(e: React.SubmitEvent<HTMLFormElement>){
 
     const songName = songFormData.get('Name');
     const MP3File = songFormData.get('MP3');
+    const IMGFile:File = songFormData.get('Image');
+    const IMAGETYPE = IMGFile.type;
+  
+    const {MP3Url ,IMGUrl}: {MP3Url:string ,IMGUrl:string} = await getPresignedUrl('png');
 
-    const PresignedURL = await getPresignedUrl('png') as string;
-
-    const uploadRes = await fetch(PresignedURL,
+    const MP3Upload = await fetch(MP3Url,
         {
             method: 'PUT',
             headers: { 'Content-Type': 'audio/mpeg' },
             body: MP3File,
         }
     )
-    console.log(uploadRes)
+    console.log(IMGUrl);
+    const IMGUpload = await fetch(IMGUrl,
+        {
+            method: 'PUT',
+            headers: {"Content-Type": IMAGETYPE}
+        }
+    )
 }
 
 
@@ -31,7 +39,7 @@ export default function Page(){
                     <input type="text" name="Name" id="Name" className="bg-neutral-700" />
                 </div>
 
-                
+
                 <input type="file" name="Image" id="Image" className=""/>
                 <input type="file" name="MP3" id="MP3" />
                 <input type="submit" value="Create" className="font-bold px-7 py-2 bg-green-500 text-black rounded-full"/>
