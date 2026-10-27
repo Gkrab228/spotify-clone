@@ -1,6 +1,7 @@
 'use client'
 
 import Image from "next/image";
+import type { Song } from "@prisma/client";
 
 export default function SongList({ songs }: { songs: Song[] }){
     return (

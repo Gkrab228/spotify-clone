@@ -22,7 +22,6 @@ export const s3ClientPublic = new S3Client({
 const bucketName = process.env.MINIO_BUCKET_NAME;
 
 export async function getUploadUrl(Key:string,ContentType:string){
-
   const command = new PutObjectCommand({
     Bucket: bucketName,
     Key,
@@ -37,5 +36,6 @@ export async function getUploadUrl(Key:string,ContentType:string){
     return presignedUrl;
   } catch(err){
     console.error(err);
+    throw new Error("S3 bucket Error")
   }
 }
